@@ -20,7 +20,16 @@
 | Revenue   | 9365.21€  |
 
 ###Part 3
-TODO
+| Results   | €         |
+| --------- |:---------:|
+| Incomes   | 17373.60€ |
+| Penalties | 31.19€    |
+| Energy    | 2726.08€  |
+| Revenue   | 14616.33€ |
+Incomes:    17373.60€
+Penalties:  31.19€
+Energy:     2726.08€
+Revenue:    14616.33€
 
 ###Part 4
 TODO

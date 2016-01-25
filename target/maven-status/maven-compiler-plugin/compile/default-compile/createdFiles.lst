@@ -6,5 +6,4 @@ fr/unice/vicc/VmAllocationPolicyFactory.class
 fr/unice/vicc/Revenue.class
 fr/unice/vicc/NaiveVmAllocationPolicy.class
 fr/unice/vicc/Main.class
-fr/unice/vicc/NaiveVmAllocationPolicy_v1.class
 fr/unice/vicc/PeakPowerObserver.class

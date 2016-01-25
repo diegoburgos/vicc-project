@@ -12,12 +12,12 @@ import java.util.Map;
 /**
  * Created by fhermeni2 on 16/11/2015.
  */
-public class NaiveVmAllocationPolicy_v1 extends VmAllocationPolicy {
+public class AntiAffinityVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */
     private Map<Vm,Host> hoster;
 
-    public NaiveVmAllocationPolicy_v1(List<? extends Host> list) {
+    public AntiAffinityVmAllocationPolicy(List<? extends Host> list) {
         super(list);
         hoster = new LinkedHashMap<>();
     }
@@ -37,8 +37,19 @@ public class NaiveVmAllocationPolicy_v1 extends VmAllocationPolicy {
     public boolean allocateHostForVm(Vm vm) {
         Iterator<Host> it = super.getHostList().iterator();
         boolean noAssigned = false;
+        Host host = null;
+        int blThisMachineId = vm.getId()/100;
         while (!noAssigned && it.hasNext()) {
-            noAssigned = allocateHostForVm(vm, it.next());
+            host = it.next();
+            Iterator<Vm> vms = host.getVmList().iterator();
+            if (vms.hasNext() && !noAssigned) {
+                Vm vmachine = vms.next();
+                if (vmachine.getId()/100 != blThisMachineId) {
+                    noAssigned = allocateHostForVm(vm, host);
+                }
+            } else if (!noAssigned) {
+                noAssigned = allocateHostForVm(vm, host);
+            }
         }
         return noAssigned;
     }

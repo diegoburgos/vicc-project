@@ -12,12 +12,12 @@ import java.util.Map;
 /**
  * Created by fhermeni2 on 16/11/2015.
  */
-public class NaiveVmAllocationPolicy extends VmAllocationPolicy {
+public class NextFitVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */
     private Map<Vm,Host> hoster;
 
-    public NaiveVmAllocationPolicy(List<? extends Host> list) {
+    public NextFitVmAllocationPolicy(List<? extends Host> list) {
         super(list);
         hoster = new LinkedHashMap<>();
     }
@@ -33,14 +33,26 @@ public class NaiveVmAllocationPolicy extends VmAllocationPolicy {
         return null;
     }
 
+    private static Host previousAssignedHost = null;
+    private static Iterator<Host> hostIterator = null;
     @Override
-    public boolean allocateHostForVm(Vm vm) {
-        Iterator<Host> it = super.getHostList().iterator();
-        boolean noAssigned = false;
-        while (!noAssigned && it.hasNext()) {
-            noAssigned = allocateHostForVm(vm, it.next());
+    public synchronized boolean allocateHostForVm(Vm vm) {
+        if (hostIterator == null || !hostIterator.hasNext()) {
+            hostIterator = super.getHostList().iterator();
         }
-        return noAssigned;
+        Host host = hostIterator.next();
+        boolean assigned = false;
+        while (!assigned && previousAssignedHost!=hostIterator) {
+            if (!hostIterator.hasNext()) {
+                hostIterator = super.getHostList().iterator();
+            }
+            host = hostIterator.next();
+            assigned = allocateHostForVm(vm, host);
+        }
+        if (assigned) {
+            previousAssignedHost = host;
+        }
+        return assigned;
     }
 
     @Override

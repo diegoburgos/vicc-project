@@ -1,0 +1,101 @@
+Diegos-MacBook-Pro:vicc-project diegoburgos$ mvn compile exec:java -Dsched=nextFit -Dday=all
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for fr.unice:vicc:jar:1.0
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 27, column 13
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building vicc 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ vicc ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/diegoburgos/Documents/DSmaster/Cloud Computing/project/vicc-project/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ vicc ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 11 source files to /Users/diegoburgos/Documents/DSmaster/Cloud Computing/project/vicc-project/target/classes
+[INFO] 
+[INFO] --- exec-maven-plugin:1.3.2:java (default-cli) @ vicc ---
+[WARNING] Warning: killAfter is now deprecated. Do you need it ? Please comment on MEXEC-6.
+Day 20110303
+Initialising...
+Incomes:    1317.67€
+Penalties:  0.00€
+Energy:     277.86€
+Revenue:    1039.82€
+
+Day 20110306
+Incomes:    1353.05€
+Penalties:  0.02€
+Energy:     245.21€
+Revenue:    1107.82€
+
+Day 20110309
+Incomes:    897.07€
+Penalties:  3.31€
+Energy:     257.96€
+Revenue:    635.80€
+
+Day 20110322
+Incomes:    1993.82€
+Penalties:  0.00€
+Energy:     329.93€
+Revenue:    1663.89€
+
+Day 20110325
+Incomes:    1921.03€
+Penalties:  3.66€
+Energy:     250.54€
+Revenue:    1666.83€
+
+Day 20110403
+Incomes:    2648.83€
+Penalties:  0.00€
+Energy:     277.12€
+Revenue:    2371.71€
+
+Day 20110409
+Incomes:    1721.54€
+Penalties:  10.33€
+Energy:     326.71€
+Revenue:    1384.50€
+
+Day 20110411
+Incomes:    2286.50€
+Penalties:  0.00€
+Energy:     263.36€
+Revenue:    2023.15€
+
+Day 20110412
+Incomes:    1984.90€
+Penalties:  0.00€
+Energy:     245.35€
+Revenue:    1739.54€
+
+Day 20110420
+Incomes:    1249.18€
+Penalties:  13.87€
+Energy:     252.03€
+Revenue:    983.28€
+
+hop
+Incomes:    17373.60€
+Penalties:  31.19€
+Energy:     2726.08€
+Revenue:    14616.33€
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:26 min
+[INFO] Finished at: 2016-01-25T14:14:39+01:00
+[INFO] Final Memory: 18M/865M
+[INFO] ------------------------------------------------------------------------
+
