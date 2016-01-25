@@ -3,26 +3,32 @@
 ## Diego Burgos Sancho
 
 ##Results
-###Part 1
-hop
-Incomes:    12398.59€
-Penalties:  402.16€
-Energy:     2645.63€
-Revenue:    9350.80€
+###Exercise 1
+| Results   | €         |
+| --------- |:---------:|
+| Incomes   | 12398.59€ |
+| Penalties | 402.16€   |
+| Energy    | 2645.63€  |
+| Revenue   | 9350.80€  |
 
-##Part 2
+###Exercise 2
+| Results   | €         |
+| --------- |:---------:|
+| Incomes   | 12398.59€ |
+| Penalties | 347.86€   |
+| Energy    | 2685.52€  |
+| Revenue   | 9365.21€  |
+
+###Part 3
 TODO
 
-##Part 3
+###Part 4
 TODO
 
-##Part 4
+###Part 5
 TODO
 
-##Part 5
-TODO
-
-##Part 6
+###Part 6
 TODO
 
 ___
