@@ -2,7 +2,7 @@
 
 ## The team
 
-- Foo bar: email1
-- bar bar: email2
+- Foo bar: diego.bursan@gmail.com
+- bar bar: ivan.lopezm.edu@gmail.com
 
 ## Comments

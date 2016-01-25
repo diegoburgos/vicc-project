@@ -2,6 +2,15 @@
 ## Iván López Moreno
 ## Diego Burgos Sancho
 
+##Results
+###Part 1
+hop
+Incomes:    12398.59€
+Penalties:  402.16€
+Energy:     2645.63€
+Revenue:    9350.80€
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Vicc project: homemade VM Schedulers
 

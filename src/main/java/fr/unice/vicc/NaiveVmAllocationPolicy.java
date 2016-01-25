@@ -3,9 +3,9 @@ package fr.unice.vicc;
 import org.cloudbus.cloudsim.Host;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
-import org.cloudbus.cloudsim.power.PowerHost;
 
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,41 +19,68 @@ public class NaiveVmAllocationPolicy extends VmAllocationPolicy {
 
     public NaiveVmAllocationPolicy(List<? extends Host> list) {
         super(list);
-        hoster =new HashMap<>();
+        hoster = new LinkedHashMap<>();
     }
 
     @Override
     protected void setHostList(List<? extends Host> hostList) {
         super.setHostList(hostList);
-        hoster = new HashMap<>();
+        hoster = new LinkedHashMap<>();
     }
 
+    /*
+     * Must return null
+     */
     @Override
     public List<Map<String, Object>> optimizeAllocation(List<? extends Vm> list) {
         return null;
     }
 
     @Override
-    public boolean allocateHostForVm(Vm vm) {        
-        return false;
+    public boolean allocateHostForVm(Vm vm) {
+        Iterator<Host> it = super.getHostList().iterator();
+        boolean noAssigned = false;
+        Host host = null;
+        while (!noAssigned && it.hasNext()) {
+            noAssigned = allocateHostForVm(vm, it.next());
+        }
+        return noAssigned;
     }
 
     @Override
     public boolean allocateHostForVm(Vm vm, Host host) {
+        if (host.vmCreate(vm)) {
+            hoster.put(vm, host);
+            return true;
+        }
         return false;
     }
 
     @Override
     public void deallocateHostForVm(Vm vm) {
+        if (hoster.containsKey(vm)) {
+            hoster.remove(vm).vmDestroy(vm);
+        }
     }
 
     @Override
     public Host getHost(Vm vm) {
+        if (hoster.containsKey(vm)) {
+            return hoster.get(vm);
+        }
         return null;
     }
 
     @Override
     public Host getHost(int vmId, int userId) {
+        /*
+        This should be changed, a hash map should not be iterated
+         */
+        for (Map.Entry<Vm, Host> entry : hoster.entrySet()) {
+            if (entry.getKey().getId()==vmId && entry.getKey().getUserId()==userId) {
+                return entry.getValue();
+            }
+        }
         return null;
     }
 }
