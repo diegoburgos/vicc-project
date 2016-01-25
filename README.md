@@ -10,7 +10,22 @@ Penalties:  402.16€
 Energy:     2645.63€
 Revenue:    9350.80€
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+##Part 2
+TODO
+
+##Part 3
+TODO
+
+##Part 4
+TODO
+
+##Part 5
+TODO
+
+##Part 6
+TODO
+
+___
 
 # Vicc project: homemade VM Schedulers
 
