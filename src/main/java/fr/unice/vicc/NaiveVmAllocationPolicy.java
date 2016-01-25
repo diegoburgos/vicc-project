@@ -28,9 +28,6 @@ public class NaiveVmAllocationPolicy extends VmAllocationPolicy {
         hoster = new LinkedHashMap<>();
     }
 
-    /*
-     * Must return null
-     */
     @Override
     public List<Map<String, Object>> optimizeAllocation(List<? extends Vm> list) {
         return null;
