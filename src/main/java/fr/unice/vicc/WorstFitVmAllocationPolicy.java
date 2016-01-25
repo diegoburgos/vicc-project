@@ -10,14 +10,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by fhermeni2 on 16/11/2015.
+ * Worst fit: The memory manager places a process in the largest block of unallocated memory available.
  */
-public class BestFitVmAllocationPolicy extends VmAllocationPolicy {
-
+public class WorstFitVmAllocationPolicy extends VmAllocationPolicy {
     /** The map to track the server that host each running VM. */
     private Map<Vm,Host> hoster;
 
-    public BestFitVmAllocationPolicy(List<? extends Host> list) {
+    public WorstFitVmAllocationPolicy(List<? extends Host> list) {
         super(list);
         hoster = new LinkedHashMap<>();
     }
@@ -33,26 +32,32 @@ public class BestFitVmAllocationPolicy extends VmAllocationPolicy {
         return null;
     }
 
-    private static Host previousAssignedHost = null;
-    private static Iterator<Host> hostIterator = null;
     @Override
-    public synchronized boolean allocateHostForVm(Vm vm) {
-        if (hostIterator == null || !hostIterator.hasNext()) {
-            hostIterator = super.getHostList().iterator();
+    public boolean allocateHostForVm(Vm vm) {
+        Iterator<Host> it = super.getHostList().iterator();
+        Host hostWithMoreRAMAviable = null;
+        int hostWithMoreRAMAviableValue = 0;
+        Host hostWithMoreMIPSAviable = null;
+        double hostWithMoreMIPSviableValue = 0;
+        boolean noAssigned = false;
+        Host currentItHost = null;
+        if (it.hasNext()) {
+            do {
+                currentItHost = it.next();
+                if (hostWithMoreRAMAviable == null ||
+                        currentItHost.getRamProvisioner().getAvailableRam()>hostWithMoreRAMAviableValue) {
+                    hostWithMoreRAMAviable = currentItHost;
+                    hostWithMoreRAMAviableValue = currentItHost.getRamProvisioner().getAvailableRam();
+                }
+                if (hostWithMoreMIPSAviable == null ||
+                        currentItHost.getAvailableMips()>hostWithMoreMIPSviableValue) {
+                    hostWithMoreMIPSAviable = currentItHost;
+                    hostWithMoreMIPSviableValue = currentItHost.getAvailableMips();
+                }
+            } while (it.hasNext());
         }
-        Host host = hostIterator.next();
-        boolean assigned = false;
-        while (!assigned && previousAssignedHost!=hostIterator) {
-            if (!hostIterator.hasNext()) {
-                hostIterator = super.getHostList().iterator();
-            }
-            host = hostIterator.next();
-            assigned = allocateHostForVm(vm, host);
-        }
-        if (assigned) {
-            previousAssignedHost = host;
-        }
-        return assigned;
+        noAssigned = allocateHostForVm(vm, hostWithMoreRAMAviable);
+        return noAssigned;
     }
 
     @Override

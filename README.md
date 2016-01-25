@@ -27,13 +27,13 @@
 | Energy    | 2726.08€  |
 | Revenue   | 14616.33€ |
 
-###Exercise 3 - Best Fit Algorithm
+###Exercise 3 - Worst Fit Algorithm
 | Results   | €         |
 | --------- |:---------:|
-| Incomes   | 17373.60€ |
-| Penalties | 31.19€    |
-| Energy    | 2726.08€  |
-| Revenue   | 14616.33€ |
+| Incomes   | 12398.59€ |
+| Penalties | 182.84€   |
+| Energy    | 3271.61€  |
+| Revenue   | 8944.14€  |
 
 ###Part 4
 TODO
