@@ -3,7 +3,7 @@
 ## Diego Burgos Sancho
 
 ##Results
-###Exercise 1
+###Exercise 1 - Naive Algorithm
 | Results   | €         |
 | --------- |:---------:|
 | Incomes   | 12398.59€ |
@@ -11,7 +11,7 @@
 | Energy    | 2645.63€  |
 | Revenue   | 9350.80€  |
 
-###Exercise 2
+###Exercise 2 - Anti Affinity Algorithm
 | Results   | €         |
 | --------- |:---------:|
 | Incomes   | 12398.59€ |
@@ -19,17 +19,21 @@
 | Energy    | 2685.52€  |
 | Revenue   | 9365.21€  |
 
-###Part 3
+###Exercise 3 - Next Fit Algorithm
 | Results   | €         |
 | --------- |:---------:|
 | Incomes   | 17373.60€ |
 | Penalties | 31.19€    |
 | Energy    | 2726.08€  |
 | Revenue   | 14616.33€ |
-Incomes:    17373.60€
-Penalties:  31.19€
-Energy:     2726.08€
-Revenue:    14616.33€
+
+###Exercise 3 - Best Fit Algorithm
+| Results   | €         |
+| --------- |:---------:|
+| Incomes   | 17373.60€ |
+| Penalties | 31.19€    |
+| Energy    | 2726.08€  |
+| Revenue   | 14616.33€ |
 
 ###Part 4
 TODO
@@ -118,7 +122,7 @@ Let consider the VMs run replicated applications. To make them fault-tolerant to
 
 ### Balance the load
 
-1. Develop a scheduler that performs load balancing using a (`next fit algorithm`[http://lmgtfy.com/?q=next+fit+algorithm] (flag `nextFit`). You should observe fewer penalties with regards to the naive scheduler.
+1. Develop a scheduler that performs load balancing using a (`next fit algorithm`[http://lmgtfy.com/?q=next+fit+algorithm]) (flag `nextFit`). You should observe fewer penalties with regards to the naive scheduler.
 1. Develop another algorithm based on a `worst fit algorithm` (`worstFit` flag) that balance with regards to both RAM and mips. Justify  the method you choosed to consider the two dimensions (it is ok to compare against internal tries).
 1. Which algorithms performs the best in terms of reducing the SLA violation. Why ?
 1. What is the theoretical complexity of each of the implemented scheduler ?
