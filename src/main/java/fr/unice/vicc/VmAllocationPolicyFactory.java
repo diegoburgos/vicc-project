@@ -24,6 +24,7 @@ public class VmAllocationPolicyFactory {
             case "nextFit":  return new NextFitVmAllocationPolicy(hosts);
             case "worstFit":  return new WorstFitVmAllocationPolicy(hosts);
             case "noViolations":  return new NoViolationsVmAllocationPolicy(hosts);
+            case "energy":  return new EnergyVmAllocationPolicy(hosts);
         }
         throw new IllegalArgumentException("No such policy '" + id + "'");
     }

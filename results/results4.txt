@@ -26,72 +26,72 @@ Day 20110303
 Initialising...
 Incomes:    1317.67€
 Penalties:  0.00€
-Energy:     336.06€
-Revenue:    981.62€
+Energy:     282.44€
+Revenue:    1035.23€
 
 Day 20110306
 Incomes:    949.85€
 Penalties:  0.00€
-Energy:     300.75€
-Revenue:    649.10€
+Energy:     250.73€
+Revenue:    699.12€
 
 Day 20110309
 Incomes:    700.27€
 Penalties:  0.00€
-Energy:     307.20€
-Revenue:    393.07€
+Energy:     264.94€
+Revenue:    435.34€
 
 Day 20110322
 Incomes:    1461.02€
 Penalties:  0.00€
-Energy:     348.60€
-Revenue:    1112.42€
+Energy:     319.72€
+Revenue:    1141.31€
 
 Day 20110325
 Incomes:    1250.28€
 Penalties:  0.00€
-Energy:     326.02€
-Revenue:    924.26€
+Energy:     280.02€
+Revenue:    970.26€
 
 Day 20110403
 Incomes:    1749.31€
 Penalties:  0.00€
-Energy:     377.65€
-Revenue:    1371.66€
+Energy:     330.33€
+Revenue:    1418.98€
 
 Day 20110409
 Incomes:    1371.14€
 Penalties:  0.00€
-Energy:     342.87€
-Revenue:    1028.27€
+Energy:     306.10€
+Revenue:    1065.05€
 
 Day 20110411
 Incomes:    1385.64€
 Penalties:  0.00€
-Energy:     343.54€
-Revenue:    1042.10€
+Energy:     297.76€
+Revenue:    1087.88€
 
 Day 20110412
 Incomes:    1218.62€
 Penalties:  0.00€
-Energy:     328.16€
-Revenue:    890.46€
+Energy:     275.41€
+Revenue:    943.21€
 
 Day 20110420
 Incomes:    994.78€
 Penalties:  0.00€
-Energy:     304.76€
-Revenue:    690.01€
+Energy:     261.30€
+Revenue:    733.48€
 
 Incomes:    12398.59€
 Penalties:  0.00€
-Energy:     3315.61€
-Revenue:    9082.98€
+Energy:     2868.74€
+Revenue:    9529.85€
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 02:51 min
-[INFO] Finished at: 2016-02-08T12:08:24+01:00
-[INFO] Final Memory: 15M/899M
+[INFO] Total time: 02:33 min
+[INFO] Finished at: 2016-02-08T14:09:51+01:00
+[INFO] Final Memory: 12M/917M
 [INFO] ------------------------------------------------------------------------

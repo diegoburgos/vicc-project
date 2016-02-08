@@ -36,26 +36,13 @@ public class NoViolationsVmAllocationPolicy extends VmAllocationPolicy {
 
     @Override
     public boolean allocateHostForVm(Vm vm) {
-        Iterator<Host> it = super.getHostList().iterator();
-        Host bestHost = null;
-        double bestHostValue = 0;
-        Host currentItHost = null;
-        double currentValue;
-        if (it.hasNext()) {
-            do {
-                currentItHost = it.next();
-                currentValue = currentItHost.getAvailableMips();
-                if (currentValue > bestHostValue &&
-                        currentValue >= vm.getCurrentRequestedTotalMips() &&
-                        currentItHost.getRamProvisioner().getAvailableRam() >= vm.getRam() &&
-                        hasAviableCore(currentItHost, vm)) {
-                    bestHostValue = currentValue;
-                    bestHost = currentItHost;
-                }
-            } while (it.hasNext());
+        for (Host host : super.getHostList()) {
+            if (host.getRamProvisioner().getAvailableRam() >= vm.getRam() &&
+                    hasAviableCore(host, vm)) {
+                return allocateHostForVm(vm, host);
+            }
         }
-        boolean res = allocateHostForVm(vm, bestHost);
-        return res;
+        return false;
     }
 
     private boolean hasAviableCore (Host host, Vm vm) {
