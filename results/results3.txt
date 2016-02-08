@@ -1,4 +1,4 @@
-Diegos-MacBook-Pro:vicc-project diegoburgos$ mvn compile exec:java -Dsched=nextFit -Dday=all
+mvn compile exec:java -Dsched=nextFit -Dday=all
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for fr.unice:vicc:jar:1.0
@@ -18,84 +18,80 @@ Diegos-MacBook-Pro:vicc-project diegoburgos$ mvn compile exec:java -Dsched=nextF
 [INFO] skip non existing resourceDirectory /Users/diegoburgos/Documents/DSmaster/Cloud Computing/project/vicc-project/src/main/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ vicc ---
-[INFO] Changes detected - recompiling the module!
-[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
-[INFO] Compiling 11 source files to /Users/diegoburgos/Documents/DSmaster/Cloud Computing/project/vicc-project/target/classes
+[INFO] Nothing to compile - all classes are up to date
 [INFO] 
 [INFO] --- exec-maven-plugin:1.3.2:java (default-cli) @ vicc ---
 [WARNING] Warning: killAfter is now deprecated. Do you need it ? Please comment on MEXEC-6.
 Day 20110303
 Initialising...
 Incomes:    1317.67€
-Penalties:  0.00€
-Energy:     277.86€
-Revenue:    1039.82€
+Penalties:  0.23€
+Energy:     265.23€
+Revenue:    1052.22€
 
 Day 20110306
-Incomes:    1353.05€
-Penalties:  0.02€
-Energy:     245.21€
-Revenue:    1107.82€
+Incomes:    949.85€
+Penalties:  2.58€
+Energy:     240.43€
+Revenue:    706.84€
 
 Day 20110309
-Incomes:    897.07€
-Penalties:  3.31€
-Energy:     257.96€
-Revenue:    635.80€
+Incomes:    700.27€
+Penalties:  4.00€
+Energy:     255.94€
+Revenue:    440.33€
 
 Day 20110322
-Incomes:    1993.82€
-Penalties:  0.00€
-Energy:     329.93€
-Revenue:    1663.89€
+Incomes:    1461.02€
+Penalties:  22.46€
+Energy:     304.38€
+Revenue:    1134.19€
 
 Day 20110325
-Incomes:    1921.03€
-Penalties:  3.66€
-Energy:     250.54€
-Revenue:    1666.83€
+Incomes:    1250.28€
+Penalties:  99.34€
+Energy:     263.97€
+Revenue:    886.97€
 
 Day 20110403
-Incomes:    2648.83€
-Penalties:  0.00€
-Energy:     277.12€
-Revenue:    2371.71€
+Incomes:    1749.31€
+Penalties:  178.75€
+Energy:     310.56€
+Revenue:    1260.00€
 
 Day 20110409
-Incomes:    1721.54€
-Penalties:  10.33€
-Energy:     326.71€
-Revenue:    1384.50€
+Incomes:    1371.14€
+Penalties:  10.18€
+Energy:     285.07€
+Revenue:    1075.90€
 
 Day 20110411
-Incomes:    2286.50€
-Penalties:  0.00€
-Energy:     263.36€
-Revenue:    2023.15€
+Incomes:    1385.64€
+Penalties:  0.05€
+Energy:     279.65€
+Revenue:    1105.94€
 
 Day 20110412
-Incomes:    1984.90€
-Penalties:  0.00€
-Energy:     245.35€
-Revenue:    1739.54€
+Incomes:    1218.62€
+Penalties:  4.38€
+Energy:     261.28€
+Revenue:    952.97€
 
 Day 20110420
-Incomes:    1249.18€
-Penalties:  13.87€
-Energy:     252.03€
-Revenue:    983.28€
+Incomes:    994.78€
+Penalties:  0.21€
+Energy:     249.19€
+Revenue:    745.37€
 
-hop
-Incomes:    17373.60€
-Penalties:  31.19€
-Energy:     2726.08€
-Revenue:    14616.33€
+Incomes:    12398.59€
+Penalties:  322.17€
+Energy:     2715.70€
+Revenue:    9360.72€
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 02:26 min
-[INFO] Finished at: 2016-01-25T14:14:39+01:00
-[INFO] Final Memory: 18M/865M
+[INFO] Finished at: 2016-02-08T10:50:04+01:00
+[INFO] Final Memory: 15M/931M
 [INFO] ------------------------------------------------------------------------
-

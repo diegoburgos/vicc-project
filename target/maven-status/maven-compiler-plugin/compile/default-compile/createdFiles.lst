@@ -1,10 +1,11 @@
+fr/unice/vicc/NaiveVmAllocationPolicy.class
+fr/unice/vicc/EnergyVmAllocationPolicy.class
+fr/unice/vicc/Main.class
 fr/unice/vicc/Helper.class
 fr/unice/vicc/Constants.class
 fr/unice/vicc/CumulatedRevenue.class
 fr/unice/vicc/Observers.class
 fr/unice/vicc/VmAllocationPolicyFactory.class
 fr/unice/vicc/Revenue.class
-fr/unice/vicc/NaiveVmAllocationPolicy.class
 fr/unice/vicc/WorstFitVmAllocationPolicy.class
-fr/unice/vicc/Main.class
 fr/unice/vicc/PeakPowerObserver.class

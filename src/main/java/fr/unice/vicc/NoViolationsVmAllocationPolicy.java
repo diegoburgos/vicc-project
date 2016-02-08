@@ -1,6 +1,7 @@
 package fr.unice.vicc;
 
 import org.cloudbus.cloudsim.Host;
+import org.cloudbus.cloudsim.Pe;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
 
@@ -10,13 +11,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Worst fit: The memory manager places a process in the largest block of unallocated memory available.
+ * Created by fhermeni2 on 16/11/2015.
  */
-public class WorstFitVmAllocationPolicy extends VmAllocationPolicy {
+public class NoViolationsVmAllocationPolicy extends VmAllocationPolicy {
+
     /** The map to track the server that host each running VM. */
     private Map<Vm,Host> hoster;
 
-    public WorstFitVmAllocationPolicy(List<? extends Host> list) {
+    public NoViolationsVmAllocationPolicy(List<? extends Host> list) {
         super(list);
         hoster = new LinkedHashMap<>();
     }
@@ -32,12 +34,6 @@ public class WorstFitVmAllocationPolicy extends VmAllocationPolicy {
         return null;
     }
 
-    /**
-     * This method assign to the host with more ram and mips available the vm
-     * max(mips*ram)
-     * @param vm
-     * @return
-     */
     @Override
     public boolean allocateHostForVm(Vm vm) {
         Iterator<Host> it = super.getHostList().iterator();
@@ -48,14 +44,27 @@ public class WorstFitVmAllocationPolicy extends VmAllocationPolicy {
         if (it.hasNext()) {
             do {
                 currentItHost = it.next();
-                currentValue = currentItHost.getRamProvisioner().getAvailableRam()*currentItHost.getAvailableMips();
-                if (currentValue > bestHostValue){
+                currentValue = currentItHost.getAvailableMips();
+                if (currentValue > bestHostValue &&
+                        currentValue >= vm.getCurrentRequestedTotalMips() &&
+                        currentItHost.getRamProvisioner().getAvailableRam() >= vm.getRam() &&
+                        hasAviableCore(currentItHost, vm)) {
                     bestHostValue = currentValue;
                     bestHost = currentItHost;
                 }
             } while (it.hasNext());
         }
-        return allocateHostForVm(vm, bestHost);
+        boolean res = allocateHostForVm(vm, bestHost);
+        return res;
+    }
+
+    private boolean hasAviableCore (Host host, Vm vm) {
+        for (Pe pe : host.getPeList()) {
+            if (pe.getPeProvisioner().getAvailableMips()>=vm.getMips()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

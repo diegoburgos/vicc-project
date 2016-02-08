@@ -33,31 +33,28 @@ public class NextFitVmAllocationPolicy extends VmAllocationPolicy {
         return null;
     }
 
-    private static Host previousAssignedHost = null;
-    private static Iterator<Host> hostIterator = null;
+    private static int listCount = 0;
     @Override
     public synchronized boolean allocateHostForVm(Vm vm) {
-        if (hostIterator == null || !hostIterator.hasNext()) {
-            hostIterator = super.getHostList().iterator();
-        }
-        Host host = hostIterator.next();
+        List<Host> hostList = super.getHostList();
+        int currentCount = listCount;
         boolean assigned = false;
-        while (!assigned && previousAssignedHost!=hostIterator) {
-            if (!hostIterator.hasNext()) {
-                hostIterator = super.getHostList().iterator();
+        do {
+            if (currentCount==hostList.size()) {
+                currentCount = 0;
             }
-            host = hostIterator.next();
-            assigned = allocateHostForVm(vm, host);
-        }
-        if (assigned) {
-            previousAssignedHost = host;
-        }
+            if (!(assigned = this.allocateHostForVm(vm, hostList.get(currentCount)))) {
+                currentCount++;
+            }
+        } while (!assigned && listCount != currentCount);
+        listCount = currentCount;
         return assigned;
     }
 
     @Override
     public boolean allocateHostForVm(Vm vm, Host host) {
         if (host.vmCreate(vm)) {
+            //System.out.println("Allocating vm " + vm.getId() + " in host " + host.getId());
             hoster.put(vm, host);
             return true;
         }

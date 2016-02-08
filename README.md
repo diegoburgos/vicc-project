@@ -22,21 +22,26 @@
 ###Exercise 3 - Next Fit Algorithm
 | Results   | €         |
 | --------- |:---------:|
-| Incomes   | 17373.60€ |
-| Penalties | 31.19€    |
-| Energy    | 2726.08€  |
-| Revenue   | 14616.33€ |
+| Incomes   | 12398.59€ |
+| Penalties | 322.17€   |
+| Energy    | 2715.70€  |
+| Revenue   | 9360.72€  |
 
-###Exercise 3 - Worst Fit Algorithm
+###Exercise 3-2 - Worst Fit Algorithm
 | Results   | €         |
 | --------- |:---------:|
 | Incomes   | 12398.59€ |
-| Penalties | 182.84€   |
-| Energy    | 3271.61€  |
-| Revenue   | 8944.14€  |
+| Penalties | 6.06€     |
+| Energy    | 3286.62€  |
+| Revenue   | 9105.92€  |
 
 ###Part 4
-TODO
+| Results   | €         |
+| --------- |:---------:|
+| Incomes   | 12398.59€ |
+| Penalties | 0.00€     |
+| Energy    | 3315.61€  |
+| Revenue   | 9082.98€  |
 
 ###Part 5
 TODO
@@ -58,7 +63,7 @@ Some usefull resources:
 - CloudSim [API](http://www.cloudbus.org/cloudsim/doc/api/index.html)
 - CloudSim [source code](cloudsim-3.0.3-src.tar.gz)
 - CloudSim [mailing-list](https://groups.google.com/forum/#!forum/cloudsim)
-- 
+
 ## Setting up the environment
 
 You must have a working Java 7 + [maven](http://maven.apache.org) environment to develop and Git to manage the sources. No IDE is necessary but feel free to use it.

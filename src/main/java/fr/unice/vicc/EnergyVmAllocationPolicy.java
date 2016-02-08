@@ -10,13 +10,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Worst fit: The memory manager places a process in the largest block of unallocated memory available.
+ * Created by fhermeni2 on 16/11/2015.
  */
-public class WorstFitVmAllocationPolicy extends VmAllocationPolicy {
+public class EnergyVmAllocationPolicy extends VmAllocationPolicy {
+
     /** The map to track the server that host each running VM. */
     private Map<Vm,Host> hoster;
 
-    public WorstFitVmAllocationPolicy(List<? extends Host> list) {
+    public EnergyVmAllocationPolicy(List<? extends Host> list) {
         super(list);
         hoster = new LinkedHashMap<>();
     }
@@ -33,29 +34,18 @@ public class WorstFitVmAllocationPolicy extends VmAllocationPolicy {
     }
 
     /**
-     * This method assign to the host with more ram and mips available the vm
-     * max(mips*ram)
+     * Cast Host to (PowerHost) to get power information about the host
      * @param vm
      * @return
      */
     @Override
     public boolean allocateHostForVm(Vm vm) {
         Iterator<Host> it = super.getHostList().iterator();
-        Host bestHost = null;
-        double bestHostValue = 0;
-        Host currentItHost = null;
-        double currentValue;
-        if (it.hasNext()) {
-            do {
-                currentItHost = it.next();
-                currentValue = currentItHost.getRamProvisioner().getAvailableRam()*currentItHost.getAvailableMips();
-                if (currentValue > bestHostValue){
-                    bestHostValue = currentValue;
-                    bestHost = currentItHost;
-                }
-            } while (it.hasNext());
+        boolean noAssigned = false;
+        while (!noAssigned && it.hasNext()) {
+            noAssigned = allocateHostForVm(vm, it.next());
         }
-        return allocateHostForVm(vm, bestHost);
+        return noAssigned;
     }
 
     @Override

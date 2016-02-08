@@ -1,4 +1,4 @@
-Diegos-MacBook-Pro:vicc-project diegoburgos$ mvn compile exec:java -Dsched=naive -Dday=all
+mvn compile exec:java -Dsched=naive -Dday=all
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for fr.unice:vicc:jar:1.0
@@ -18,7 +18,9 @@ Diegos-MacBook-Pro:vicc-project diegoburgos$ mvn compile exec:java -Dsched=naive
 [INFO] skip non existing resourceDirectory /Users/diegoburgos/Documents/DSmaster/Cloud Computing/project/vicc-project/src/main/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ vicc ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 14 source files to /Users/diegoburgos/Documents/DSmaster/Cloud Computing/project/vicc-project/target/classes
 [INFO] 
 [INFO] --- exec-maven-plugin:1.3.2:java (default-cli) @ vicc ---
 [WARNING] Warning: killAfter is now deprecated. Do you need it ? Please comment on MEXEC-6.
@@ -83,7 +85,6 @@ Penalties:  14.20€
 Energy:     245.15€
 Revenue:    735.43€
 
-hop
 Incomes:    12398.59€
 Penalties:  402.16€
 Energy:     2645.63€
@@ -92,8 +93,7 @@ Revenue:    9350.80€
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 02:44 min
-[INFO] Finished at: 2016-01-25T10:46:27+01:00
-[INFO] Final Memory: 12M/968M
+[INFO] Total time: 02:59 min
+[INFO] Finished at: 2016-02-08T10:38:27+01:00
+[INFO] Final Memory: 20M/877M
 [INFO] ------------------------------------------------------------------------
-

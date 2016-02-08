@@ -1,4 +1,4 @@
-mvn compile exec:java -Dsched=worstFit -Dday=all
+mvn compile exec:java -Dsched=noViolations -Dday=all
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for fr.unice:vicc:jar:1.0
@@ -26,72 +26,72 @@ Day 20110303
 Initialising...
 Incomes:    1317.67€
 Penalties:  0.00€
-Energy:     333.56€
-Revenue:    984.11€
+Energy:     336.06€
+Revenue:    981.62€
 
 Day 20110306
 Incomes:    949.85€
 Penalties:  0.00€
-Energy:     301.37€
-Revenue:    648.47€
+Energy:     300.75€
+Revenue:    649.10€
 
 Day 20110309
 Incomes:    700.27€
 Penalties:  0.00€
-Energy:     306.88€
-Revenue:    393.39€
+Energy:     307.20€
+Revenue:    393.07€
 
 Day 20110322
 Incomes:    1461.02€
 Penalties:  0.00€
-Energy:     342.01€
-Revenue:    1119.01€
+Energy:     348.60€
+Revenue:    1112.42€
 
 Day 20110325
 Incomes:    1250.28€
-Penalties:  3.66€
-Energy:     326.91€
-Revenue:    919.71€
+Penalties:  0.00€
+Energy:     326.02€
+Revenue:    924.26€
 
 Day 20110403
 Incomes:    1749.31€
-Penalties:  2.36€
-Energy:     367.69€
-Revenue:    1379.26€
+Penalties:  0.00€
+Energy:     377.65€
+Revenue:    1371.66€
 
 Day 20110409
 Incomes:    1371.14€
 Penalties:  0.00€
-Energy:     337.90€
-Revenue:    1033.24€
+Energy:     342.87€
+Revenue:    1028.27€
 
 Day 20110411
 Incomes:    1385.64€
 Penalties:  0.00€
-Energy:     341.99€
-Revenue:    1043.65€
+Energy:     343.54€
+Revenue:    1042.10€
 
 Day 20110412
 Incomes:    1218.62€
 Penalties:  0.00€
-Energy:     324.79€
-Revenue:    893.83€
+Energy:     328.16€
+Revenue:    890.46€
 
 Day 20110420
 Incomes:    994.78€
-Penalties:  0.02€
-Energy:     303.51€
-Revenue:    691.24€
+Penalties:  0.00€
+Energy:     304.76€
+Revenue:    690.01€
 
 Incomes:    12398.59€
-Penalties:  6.06€
-Energy:     3286.62€
-Revenue:    9105.92€
+Penalties:  0.00€
+Energy:     3315.61€
+Revenue:    9082.98€
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 02:32 min
-[INFO] Finished at: 2016-02-08T10:52:42+01:00
-[INFO] Final Memory: 12M/935M
+[INFO] Total time: 02:51 min
+[INFO] Finished at: 2016-02-08T12:08:24+01:00
+[INFO] Final Memory: 15M/899M
 [INFO] ------------------------------------------------------------------------
