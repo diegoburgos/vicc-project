@@ -1,13 +1,12 @@
 package fr.unice.vicc;
 
 import org.cloudbus.cloudsim.Host;
+import org.cloudbus.cloudsim.Pe;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
+import org.cloudbus.cloudsim.power.PowerHost;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by fhermeni2 on 16/11/2015.
@@ -33,19 +32,26 @@ public class EnergyVmAllocationPolicy extends VmAllocationPolicy {
         return null;
     }
 
-    /**
-     * Cast Host to (PowerHost) to get power information about the host
-     * @param vm
-     * @return
-     */
+    private static int listCount = 0;
     @Override
     public boolean allocateHostForVm(Vm vm) {
-        Iterator<Host> it = super.getHostList().iterator();
-        boolean noAssigned = false;
-        while (!noAssigned && it.hasNext()) {
-            noAssigned = allocateHostForVm(vm, it.next());
+        LinkedHashMap<Host, Double> map = new LinkedHashMap<>();
+        for (Host host : super.getHostList()) {
+            map.put(host, host.getAvailableMips());
         }
-        return noAssigned;
+        ArrayList<Map.Entry<Host, Double>> hostList = new ArrayList<>(map.entrySet());
+        Collections.sort(hostList, new Comparator<Map.Entry<Host, Double>>() {
+            @Override
+            public int compare(Map.Entry<Host, Double> o1, Map.Entry<Host, Double> o2) {
+                return (int) (o1.getValue() - o2.getValue());
+            }
+        });
+        for (Map.Entry<Host, Double> entry : hostList) {
+            if (allocateHostForVm(vm, entry.getKey())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

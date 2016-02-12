@@ -3,8 +3,8 @@ package fr.unice.vicc;
 import org.cloudbus.cloudsim.Host;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
+import org.cloudbus.cloudsim.power.PowerHost;
 
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,12 +12,12 @@ import java.util.Map;
 /**
  * Created by fhermeni2 on 16/11/2015.
  */
-public class NextFitVmAllocationPolicy extends VmAllocationPolicy {
+public class GreedyVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */
     private Map<Vm,Host> hoster;
 
-    public NextFitVmAllocationPolicy(List<? extends Host> list) {
+    public GreedyVmAllocationPolicy(List<? extends Host> list) {
         super(list);
         hoster = new LinkedHashMap<>();
     }
@@ -33,22 +33,30 @@ public class NextFitVmAllocationPolicy extends VmAllocationPolicy {
         return null;
     }
 
+    private boolean canAllocateConsideringRAMAndMIPS (Host host, Vm vm) {
+        return host.getRamProvisioner().getAvailableRam() >= vm.getRam() &&
+                host.getAvailableMips() >= vm.getMips();
+    }
+
     private static int listCount = 0;
+    /**
+     * Cast Host to (PowerHost) to get power information about the host
+     * @param vm
+     * @return
+     */
     @Override
-    public synchronized boolean allocateHostForVm(Vm vm) {
-        List<Host> hostList = super.getHostList();
-        int currentCount = listCount;
-        boolean assigned = false;
-        do {
-            if (currentCount==hostList.size()) {
-                currentCount = 0;
+    public boolean allocateHostForVm(Vm vm) {
+        Host foundHost = null;
+        double powerHostValue = Double.MAX_VALUE;
+        for (Host host : super.getHostList()) {
+            PowerHost currentHost = (PowerHost)host;
+            if (powerHostValue > currentHost.getPower() &&
+                    canAllocateConsideringRAMAndMIPS(host, vm)) {
+                powerHostValue = currentHost.getPower();
+                foundHost = host;
             }
-            if (!(assigned = this.allocateHostForVm(vm, hostList.get(currentCount)))) {
-                currentCount++;
-            }
-        } while (!assigned && listCount != currentCount);
-        listCount = currentCount;
-        return assigned;
+        }
+        return allocateHostForVm(vm, foundHost);
     }
 
     @Override

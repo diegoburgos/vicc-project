@@ -49,7 +49,7 @@ public class WorstFitVmAllocationPolicy extends VmAllocationPolicy {
             do {
                 currentItHost = it.next();
                 currentValue = currentItHost.getRamProvisioner().getAvailableRam()*currentItHost.getAvailableMips();
-                if (currentValue > bestHostValue){
+                if (currentValue > bestHostValue) {
                     bestHostValue = currentValue;
                     bestHost = currentItHost;
                 }
