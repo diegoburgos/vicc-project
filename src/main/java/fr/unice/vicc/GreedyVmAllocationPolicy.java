@@ -1,17 +1,16 @@
 package fr.unice.vicc;
 
 import org.cloudbus.cloudsim.Host;
+import org.cloudbus.cloudsim.Pe;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
 import org.cloudbus.cloudsim.power.PowerHost;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by fhermeni2 on 16/11/2015.
- */
 public class GreedyVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */
@@ -38,25 +37,34 @@ public class GreedyVmAllocationPolicy extends VmAllocationPolicy {
                 host.getAvailableMips() >= vm.getMips();
     }
 
-    private static int listCount = 0;
-    /**
-     * Cast Host to (PowerHost) to get power information about the host
-     * @param vm
-     * @return
-     */
-    @Override
-    public boolean allocateHostForVm(Vm vm) {
-        Host foundHost = null;
-        double powerHostValue = Double.MAX_VALUE;
-        for (Host host : super.getHostList()) {
-            PowerHost currentHost = (PowerHost)host;
-            if (powerHostValue > currentHost.getPower() &&
-                    canAllocateConsideringRAMAndMIPS(host, vm)) {
-                powerHostValue = currentHost.getPower();
-                foundHost = host;
+    private boolean hasAviableCore (Host host, Vm vm) {
+        for (Pe pe : host.getPeList()) {
+            if (pe.getPeProvisioner().getAvailableMips()>=vm.getMips()) {
+                return true;
             }
         }
-        return allocateHostForVm(vm, foundHost);
+        return false;
+    }
+
+    @Override
+    public boolean allocateHostForVm(Vm vm) {
+        Iterator<Host> it = super.getHostList().iterator();
+        Host bestHost = null;
+        double bestHostValue = Double.MAX_VALUE;
+        Host currentItHost;
+        double currentValue;
+        if (it.hasNext()) {
+            do {
+                currentItHost = it.next();
+                currentValue = currentItHost.getAvailableMips();
+                if (currentValue <= bestHostValue && canAllocateConsideringRAMAndMIPS(currentItHost, vm)
+                        && hasAviableCore(currentItHost, vm)) {
+                    bestHostValue = currentValue;
+                    bestHost = currentItHost;
+                }
+            } while (it.hasNext());
+        }
+        return allocateHostForVm(vm, bestHost);
     }
 
     @Override

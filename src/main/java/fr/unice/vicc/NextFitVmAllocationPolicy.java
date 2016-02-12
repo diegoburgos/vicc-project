@@ -4,14 +4,10 @@ import org.cloudbus.cloudsim.Host;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
 
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by fhermeni2 on 16/11/2015.
- */
 public class NextFitVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */
@@ -38,7 +34,7 @@ public class NextFitVmAllocationPolicy extends VmAllocationPolicy {
     public synchronized boolean allocateHostForVm(Vm vm) {
         List<Host> hostList = super.getHostList();
         int currentCount = listCount;
-        boolean assigned = false;
+        boolean assigned;
         do {
             if (currentCount==hostList.size()) {
                 currentCount = 0;

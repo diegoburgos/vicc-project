@@ -5,14 +5,10 @@ import org.cloudbus.cloudsim.Pe;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
 
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by fhermeni2 on 16/11/2015.
- */
 public class NoViolationsVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */

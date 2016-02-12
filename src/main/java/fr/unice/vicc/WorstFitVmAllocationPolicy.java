@@ -32,18 +32,12 @@ public class WorstFitVmAllocationPolicy extends VmAllocationPolicy {
         return null;
     }
 
-    /**
-     * This method assign to the host with more ram and mips available the vm
-     * max(mips*ram)
-     * @param vm
-     * @return
-     */
     @Override
     public boolean allocateHostForVm(Vm vm) {
         Iterator<Host> it = super.getHostList().iterator();
         Host bestHost = null;
         double bestHostValue = 0;
-        Host currentItHost = null;
+        Host currentItHost;
         double currentValue;
         if (it.hasNext()) {
             do {

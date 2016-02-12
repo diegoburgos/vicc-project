@@ -9,9 +9,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by fhermeni2 on 16/11/2015.
- */
 public class AntiAffinityVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */
@@ -37,7 +34,7 @@ public class AntiAffinityVmAllocationPolicy extends VmAllocationPolicy {
     public boolean allocateHostForVm(Vm vm) {
         Iterator<Host> it = super.getHostList().iterator();
         boolean noAssigned = false;
-        Host host = null;
+        Host host;
         int blThisMachineId = vm.getId()/100;
         while (!noAssigned && it.hasNext()) {
             host = it.next();

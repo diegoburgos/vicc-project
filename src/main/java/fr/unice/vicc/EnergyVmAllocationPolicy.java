@@ -1,16 +1,11 @@
 package fr.unice.vicc;
 
 import org.cloudbus.cloudsim.Host;
-import org.cloudbus.cloudsim.Pe;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
-import org.cloudbus.cloudsim.power.PowerHost;
 
 import java.util.*;
 
-/**
- * Created by fhermeni2 on 16/11/2015.
- */
 public class EnergyVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */
@@ -32,7 +27,6 @@ public class EnergyVmAllocationPolicy extends VmAllocationPolicy {
         return null;
     }
 
-    private static int listCount = 0;
     @Override
     public boolean allocateHostForVm(Vm vm) {
         LinkedHashMap<Host, Double> map = new LinkedHashMap<>();

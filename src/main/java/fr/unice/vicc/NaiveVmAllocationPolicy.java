@@ -9,9 +9,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by fhermeni2 on 16/11/2015.
- */
 public class NaiveVmAllocationPolicy extends VmAllocationPolicy {
 
     /** The map to track the server that host each running VM. */
