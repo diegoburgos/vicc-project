@@ -2,8 +2,8 @@
 ## Iván López Moreno
 ## Diego Burgos Sancho
 
-The notes of the proyect are on the [notes](notes.md) file
-
+The notes of the project are on the [notes](notes.md) file
+The bash program to execute all the policies is [executeAllSchedulers.sh](executeAllSchedulers.sh)
 ___
 
 # Vicc project: homemade VM Schedulers
