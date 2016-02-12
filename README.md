@@ -4,6 +4,8 @@
 
 The notes of the project are on the [notes](notes.md) file
 The bash program to execute all the policies is [executeAllSchedulers.sh](executeAllSchedulers.sh)
+The results of each scheduler are on this [Excel file](results/results.xlsx)
+
 ___
 
 # Vicc project: homemade VM Schedulers
