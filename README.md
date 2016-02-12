@@ -2,52 +2,7 @@
 ## Iván López Moreno
 ## Diego Burgos Sancho
 
-##Results
-###Exercise 1 - Naive Algorithm
-| Results   | €         |
-| --------- |:---------:|
-| Incomes   | 12398.59€ |
-| Penalties | 402.16€   |
-| Energy    | 2645.63€  |
-| Revenue   | 9350.80€  |
-
-###Exercise 2 - Anti Affinity Algorithm
-| Results   | €         |
-| --------- |:---------:|
-| Incomes   | 12398.59€ |
-| Penalties | 347.86€   |
-| Energy    | 2685.52€  |
-| Revenue   | 9365.21€  |
-
-###Exercise 3 - Next Fit Algorithm
-| Results   | €         |
-| --------- |:---------:|
-| Incomes   | 12398.59€ |
-| Penalties | 322.17€   |
-| Energy    | 2715.70€  |
-| Revenue   | 9360.72€  |
-
-###Exercise 3-2 - Worst Fit Algorithm
-| Results   | €         |
-| --------- |:---------:|
-| Incomes   | 12398.59€ |
-| Penalties | 6.06€     |
-| Energy    | 3286.62€  |
-| Revenue   | 9105.92€  |
-
-###Part 4
-| Results   | €         |
-| --------- |:---------:|
-| Incomes   | 12398.59€ |
-| Penalties | 0.00€     |
-| Energy    | 2868.74€  |
-| Revenue   | 9529.85€  |
-
-###Part 5
-TODO
-
-###Part 6
-TODO
+The notes of the proyects are on the notes.md file
 
 ___
 
