@@ -1,6 +1,7 @@
 # Project VICC
-## Iván López Moreno
-## Diego Burgos Sancho
+
+1. Iván López Moreno
+2. Diego Burgos Sancho
 
 The notes of the project are on the [notes](notes.md) file
 The bash program to execute all the policies is [executeAllSchedulers.sh](executeAllSchedulers.sh)
